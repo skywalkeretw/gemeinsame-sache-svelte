@@ -110,7 +110,27 @@ let sayings = [
     { "de": "Ein skurriles Verhalten eines Roboters", "en": "Quirky behavior of a robot" },
     { "de": "Die lustigste Begründung für das Scheitern einer Zeitmaschine", "en": "The funniest reason for the failure of a time machine" },
     { "de": "Ein erfundener Superheld, der nur Alltagsprobleme löst", "en": "An invented superhero who only solves everyday problems" },
-    { "de": "Die witzigste Entschuldigung für das Verlieren einer Socke", "en": "The funniest excuse for losing a sock" }    
+    { "de": "Die witzigste Entschuldigung für das Verlieren einer Socke", "en": "The funniest excuse for losing a sock" },
+    { "de": "Etwas Sexy", "en": "Something Sexy" },
+    { "de": "Ein unangebrachtes Geburtstags geschenk", "en": "An appropriate birthday present" },
+    { "de": "Etwas das man einen Schwarzen nicht nennen möchte", "en": "Something you dont want to call a black person"},
+    { "de": "Der sinnloseste Gegenstand", "en": "The most pointless object" },
+    { "de": "Etwas, das du nicht essen würdest", "en": "Something you wouldn't eat" },
+    { "de": "Der ungewöhnlichste Ort für eine Party", "en": "The most unusual place for a party" },
+    { "de": "Die langweiligste Tätigkeit", "en": "The most boring activity" },
+    { "de": "Etwas, das nur Kinder lieben", "en": "Something only children love" },
+    { "de": "Der schlechteste Filmschauspieler", "en": "The worst movie actor" },
+    { "de": "Der schnellste weg entlassen zu werden", "en": "The quickest way to get fired" },
+    { "de": "Etwas das man im Gefängnis handeln würde", "en": "Something you would trade in prison" },
+    { "de": "Etwas das als elegant gilt wenn man reich ist aber billig wenn man arm ist", "en": "What is Classy If You are Rich But Trashy If You are Poor" },
+    { "de": "Etwas das eine Frau hat aber ein Mann nicht", "en": "Something a Woman has that a man does not" },
+    { "de": "Etwas das man einem kind nicht geben sollte", "en": "Something you sould not give to a child" },
+    { "de": "Was wird zum Weltuntergang führen", "en": "What will cause the end of the world" },
+    { "de": "Etwas ungewöhnliches was man auf der toilette machen kann", "en": "Something unusual you can do on the toilet" },
+    { "de": "Ein Geschenk welches man nicht zu Weihnachten bekommen möchte", "en": "A present you do not want to get for christmas" },
+    { "de": "Ein Gegenstand das man nicht in seinem Happymeal finden möchte", "en": "Something you do not want to find in your happymeal" },
+    { "de": "Wieso tut mir alles weh", "en": "Why do I hurt all over" }
+
 ]
 
 
@@ -140,5 +160,12 @@ export function getRandomSaying() {
         // Sayings array is empty, reset and return null or handle as needed
         reset = false;
         return null;
+    }
+}
+
+export function numbers(){
+    return {
+        left: sayings.length, 
+        used: used.length
     }
 }
