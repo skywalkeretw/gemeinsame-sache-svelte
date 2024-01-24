@@ -3,8 +3,8 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { getRandomSaying, numbers } from './gemeinsame-sache.js'
 	import language from "../language-store.js"
+    import Info from '../Info.svelte';
 
-    import Info from './Info.svelte';
 	let infoMsg = "";
 	let saying = null;
 	
@@ -23,9 +23,9 @@
         }
     })
 
-	let rules ={
+	let rules = {
 		"en":"The goal of the game is to always find the \"Common Ground.\" Each player writes a term they believe fits into a category. The most frequently mentioned term becomes the \"Common Ground\" and wins the round. The player who could collect the most points by the end wins. If you win a round with your term, you receive a point from the bank. By betting on your term, you can quickly earn chips/points.",
-		"en":"Ziel des Spiels ist es, stets die „Gemeinsame Sache“ zu finden. Jeder Spieler schreibt zu einer Kategorie einen seiner Meinung nach passenden Begriff auf. Der meistgenannte Begriff ist die „Gemeinsame Sache“ und gewinnt die Runde. Der Spieler, der am Ende die meisten Punkte sammeln konnte, gewinnt. Gewinnt ihr eine Runde mit eurem Begriff, bekommt ihr einen Punkt von der Bank. Durch das Wetten auf euren Begriff könnt ihr schnell Chips/Punkte verdienen. "
+		"de":"Ziel des Spiels ist es, stets die „Gemeinsame Sache“ zu finden. Jeder Spieler schreibt zu einer Kategorie einen seiner Meinung nach passenden Begriff auf. Der meistgenannte Begriff ist die „Gemeinsame Sache“ und gewinnt die Runde. Der Spieler, der am Ende die meisten Punkte sammeln konnte, gewinnt. Gewinnt ihr eine Runde mit eurem Begriff, bekommt ihr einen Punkt von der Bank. Durch das Wetten auf euren Begriff könnt ihr schnell Chips/Punkte verdienen. "
 	}
 	let num = {"left": -1, "used": -1}
 	
