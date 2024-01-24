@@ -1,6 +1,24 @@
 <script>
-	import { Center, Title } from '@svelteuidev/core';
+	import { Center, Title, Button } from '@svelteuidev/core';
+    import language from "./language-store.js"
+	import { onMount, onDestroy } from 'svelte';
 
+    let currentLang = ""
+    let unsubscribeLanguage
+    
+    onMount(() => {
+        unsubscribeLanguage = language.subscribe( subscribeLanguage =>  currentLang = subscribeLanguage)
+    })
+
+    onDestroy(() =>{
+        if (unsubscribeLanguage) {
+            unsubscribeLanguage();
+        }
+    })
+
+    function toggleLanguage(){
+        language.toggleLanguage()
+    }
 </script>
 
 <style>
@@ -11,6 +29,10 @@
 
 <div class="header">
 	<Center>
-		<Title order={1}>Gemeinsame Sache</Title>
+		<a href="/" style="text-decoration: none;"><Title order={1}>{currentLang === "en" ? "Awsome Party Games" : "Tolle Party Spiele"}</Title></a>
+		<Button on:click={toggleLanguage} variant="outline" radius="xl" uppercase ripple>
+			{currentLang}
+		</Button>
 	</Center>
+	<hr>
 </div>
