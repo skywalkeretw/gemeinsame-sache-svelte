@@ -1,5 +1,5 @@
 <script>
-	import { Title, Center, Card, Button, Container, Space, Text, Stack, Group } from '@svelteuidev/core';
+	import { Title, Center, Card, Button, Container, Space, Text, Stack, Group, SimpleGrid } from '@svelteuidev/core';
 	import { onMount, onDestroy } from 'svelte';
 	import { getRandomSaying, numbers } from './blackout'
 	import language from "../language-store.js"
@@ -54,8 +54,9 @@
 
 </script>
   
-
 <Info bind:message={infoMsg}/>
+{#if players.length !== 0}
+
 <Stack>
 	<Center>
 		<Group>
@@ -82,6 +83,27 @@
 			{/if}
 		</Card>
 	</Center>
+
+    <SimpleGrid cols={3}>
+        {#each players as player}
+        <Card>
+            <Stack>
+                <Center>
+                    <Title>
+                        Name
+                    </Title>
+                    
+                </Center>
+                <Button fullSize></Button>
+            </Stack>
+        </Card>
+        {/each}
+    </SimpleGrid>
 </Stack>
+
+{:else}
+    
+    <h2>Create Players</h2>
+{/if}
 
 <svelte:window on:keydown|preventDefault={onKeyDown} />
