@@ -27,9 +27,7 @@
     });
 
     onDestroy(() => {
-        if (unsubscribeLanguage) {
-            unsubscribeLanguage();
-        }
+        unsubscribeLanguage?.();
     });
 
     function handleRadioChange() {

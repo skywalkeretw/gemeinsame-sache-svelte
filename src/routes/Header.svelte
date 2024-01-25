@@ -13,9 +13,7 @@
     });
 
     onDestroy(() => {
-        if (unsubscribeLanguage) {
-            unsubscribeLanguage();
-        }
+        unsubscribeLanguage?.();
     });
 
     function toggleLanguage() {

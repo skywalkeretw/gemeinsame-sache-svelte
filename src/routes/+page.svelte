@@ -14,9 +14,7 @@
     });
 
     onDestroy(() => {
-        if (unsubscribeLanguage) {
-            unsubscribeLanguage();
-        }
+        unsubscribeLanguage?.();
     });
 </script>
 

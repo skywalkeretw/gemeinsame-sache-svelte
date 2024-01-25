@@ -15,9 +15,7 @@
     });
 
     onDestroy(() => {
-        if (unsubscribeLanguage) {
-            unsubscribeLanguage();
-        }
+        unsubscribeLanguage?.();
     });
 
     let opened = false;

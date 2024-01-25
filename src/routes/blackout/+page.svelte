@@ -10,13 +10,15 @@
 		Stack,
 		Group,
 		SimpleGrid,
+        Loader,
 	} from "@svelteuidev/core";
 	import { onMount, onDestroy } from "svelte";
 	import { getRandomSaying, numbers } from "./blackout";
 	import language from "../language-store.js";
 	import Info from "../Info.svelte";
-
-	let players = [];
+	import playersStore from "../players/player-store";
+	import BlackoutStartNoPlayers from "./blackoutStartNoPlayers.svelte"
+	import BlackoutPlayerList from "./blackoutPlayerList.svelte"
 
 	let infoMsg = "";
 	let card = null;
@@ -30,18 +32,23 @@
 	let currentLang = "";
 	let unsubscribeLanguage;
 
+	let players = [];
+    let unsubscribePlayers;
+	
 	onMount(() => {
-		getNextSaying();
-		num = numbers();
 		unsubscribeLanguage = language.subscribe(
 			(subscribeLanguage) => (currentLang = subscribeLanguage),
 		);
+        unsubscribePlayers = playersStore.subscribe((p) => (players = p));
+		if (players.length > 1 ){
+			getNextSaying();
+			num = numbers();
+		}
 	});
 
 	onDestroy(() => {
-		if (unsubscribeLanguage) {
-			unsubscribeLanguage();
-		}
+		unsubscribeLanguage?.();
+		unsubscribePlayers?.();
 	});
 
 	function getNextSaying() {
@@ -52,9 +59,11 @@
 		}
 		num = numbers();
 	}
+
 	function showRules() {
 		infoMsg = currentLang === "en" ? rules.en : rules.de;
 	}
+
 	function onKeyDown(e) {
 		if (infoMsg === "") {
 			if (e.keyCode === 32) {
@@ -65,7 +74,7 @@
 </script>
 
 <Info bind:message={infoMsg} />
-{#if players.length !== 0}
+{#if players.length > 1}
 	<Stack>
 		<Center>
 			<Group>
@@ -117,22 +126,12 @@
 				{/if}
 			</Card>
 		</Center>
-
-		<SimpleGrid cols={3}>
-			{#each players as player}
-				<Card>
-					<Stack>
-						<Center>
-							<Title>Name</Title>
-						</Center>
-						<Button fullSize></Button>
-					</Stack>
-				</Card>
-			{/each}
-		</SimpleGrid>
+		<Container size="xl">
+			<BlackoutPlayerList/>
+		</Container>
 	</Stack>
 {:else}
-	<h2>Create Players</h2>
+<BlackoutStartNoPlayers/>
 {/if}
 
 <svelte:window on:keydown|preventDefault={onKeyDown} />

@@ -28,12 +28,9 @@
     });
 
     onDestroy(() => {
-        if (unsubscribePlayers) {
-            unsubscribePlayers();
-        }
-        if (unsubscribeLanguage) {
-            unsubscribeLanguage();
-        }
+        
+        unsubscribePlayers?.();
+        unsubscribeLanguage?.();
     });
 
     function addPlayer() {
