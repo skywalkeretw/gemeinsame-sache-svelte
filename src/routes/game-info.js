@@ -1,17 +1,32 @@
 
 let games = {
-    "gemeinsamesache": { 
-        en: "Common Ground", 
-        de: "Gemeinsame Sache", 
-        path: "/gemeinsamesache"
+    "gemeinsamesache": {
+        name: {
+            en: "Common Ground",
+            de: "Gemeinsame Sache",
+        },
+        path: "/gemeinsamesache",
+        description: {
+            en: "",
+            de: "",
+        },
     },
-    "blackout": { 
-        en: "Blackout", 
-        de: "Blackout",
-        path: "/blackout"
+    "blackout": {
+        name: {
+            en: "Blackout",
+            de: "Blackout"
+        },
+        path: "/blackout",
+        description: {
+            en: "",
+            de: "",
+        },
     },
 }
 
+export function getGames() {
+    return games
+}
 
 export function getGameByKey(key) {
     return games[key]

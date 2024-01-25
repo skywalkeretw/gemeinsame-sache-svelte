@@ -28,14 +28,13 @@ const playerStore = {
   },
   togglePlayerStatus: id => {
     players.update(items => {
-      let updatedPlayer = {...items.find(p => p.id === id)}
+      let updatedPlayer = { ...items.find(p => p.id === id) }
       updatedPlayer.active = !updatedPlayer.active
 
       let playerIndex = items.findIndex(p => p.id === id);
 
       let updatedPlayers = [...items]
-      updatedPlayers[playerIndex] =updatedPlayer
-      console.log(updatedPlayers)
+      updatedPlayers[playerIndex] = updatedPlayer
       return updatedPlayers
     })
   },

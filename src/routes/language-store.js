@@ -1,8 +1,8 @@
 import { writable } from "svelte/store";
 
-const languageStore = writable("en") 
+const languageStore = writable("en")
 languageStore.toggleLanguage = () => {
-    languageStore.update( currentLanguage => {
+    languageStore.update(currentLanguage => {
         return currentLanguage === "en" ? "de" : "en"
     });
 }
