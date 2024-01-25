@@ -36,10 +36,9 @@
     let unsubscribePlayers;
 	
 	onMount(() => {
-		unsubscribeLanguage = language.subscribe(
-			(subscribeLanguage) => (currentLang = subscribeLanguage),
-		);
+		unsubscribeLanguage = language.subscribe((subscribeLanguage) => (currentLang = subscribeLanguage));
         unsubscribePlayers = playersStore.subscribe((p) => (players = p));
+		
 		if (players.length > 1 ){
 			getNextSaying();
 			num = numbers();
@@ -74,7 +73,7 @@
 </script>
 
 <Info bind:message={infoMsg} />
-{#if players.length > 1}
+{#if players.filter(item => item.active === true).length > 1}
 	<Stack>
 		<Center>
 			<Group>

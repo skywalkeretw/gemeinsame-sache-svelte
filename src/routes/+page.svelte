@@ -17,7 +17,7 @@
         unsubscribeLanguage?.();
     });
 </script>
-
+<a href="/players">player</a>
 <SimpleGrid cols={5}>
     {#each Object.entries(getGames()) as [key, game]}
         <a href={game.path}>
