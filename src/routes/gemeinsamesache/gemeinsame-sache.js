@@ -113,7 +113,7 @@ let sayings = [
     { "de": "Die witzigste Entschuldigung für das Verlieren einer Socke", "en": "The funniest excuse for losing a sock" },
     { "de": "Etwas Sexy", "en": "Something Sexy" },
     { "de": "Ein unangebrachtes Geburtstags geschenk", "en": "An appropriate birthday present" },
-    { "de": "Etwas das man einen Schwarzen nicht nennen möchte", "en": "Something you dont want to call a black person"},
+    { "de": "Etwas das man einen Schwarzen nicht nennen möchte", "en": "Something you dont want to call a black person" },
     { "de": "Der sinnloseste Gegenstand", "en": "The most pointless object" },
     { "de": "Etwas, das du nicht essen würdest", "en": "Something you wouldn't eat" },
     { "de": "Der ungewöhnlichste Ort für eine Party", "en": "The most unusual place for a party" },
@@ -163,9 +163,9 @@ export function getRandomSaying() {
     }
 }
 
-export function numbers(){
+export function numbers() {
     return {
-        left: sayings.length, 
+        left: sayings.length,
         used: used.length
     }
 }
