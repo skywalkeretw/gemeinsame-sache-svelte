@@ -42,9 +42,10 @@
             <Flex gap="lg">
                 {#each Object.entries(player.socores) as [game, score]}
                     <Badge size="xl" radius="sm">
+
                         {currentLang == "en"
-                            ? getGameByKey(game).en
-                            : getGameByKey(game).de}: {score}
+                            ? getGameByKey(game).name.en
+                            : getGameByKey(game).name.de}: {score}
                     </Badge>
                 {/each}
             </Flex>

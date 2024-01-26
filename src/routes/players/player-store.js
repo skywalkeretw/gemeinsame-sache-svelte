@@ -20,6 +20,7 @@ const playerStore = {
       socores: {
         "gemeinsamesache": 0,
         "blackout": 0,
+        "whowouldrather": 0
       }
     };
     players.update(items => {

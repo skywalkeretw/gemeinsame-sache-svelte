@@ -22,6 +22,17 @@ let games = {
             de: "",
         },
     },
+    "whowouldrather": {
+        name: {
+            en: "Who would rather!",
+            de: "Wer würde eher!"
+        },
+        path: "/whowouldrather",
+        description: {
+            en: "",
+            de: "",
+        },
+    },
 }
 
 export function getGames() {
